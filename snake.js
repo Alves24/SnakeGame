@@ -4,26 +4,13 @@ class Snake{
         this.y = y;
         this.direction = "ArrowRight";
     }
-
-    // set direction(newDir){
-    //     switch(this.direction){
-    //         case "ArrowLeft":
-    //             if(newDir != "ArrowRight") this.direction = newDir;
-    //             break;
-    //         case "ArrowUp":
-    //             if(newDir != "ArrowDown") this.direction = newDir;
-    //             break;
-    //         case "ArrowRight":
-    //             if(newDir != "ArrowLeft") this.direction = newDir;
-    //             break;
-    //         case "ArrowDown":
-    //             if(newDir != "ArrowUp") this.direction = newDir;
-    //             break;
-    //         }
-    // }
-    // get direction() {
-    //     return this.direction;
-    // }
+    
+    draw(){
+        this.move();
+        ctx.fillStyle = "rgb(195,79,25)";
+        ctx.strokeStyle = "rgb(0,0,0)";
+        ctx.fillRect(this.x * gridSize,this.y * gridSize,gridSize,gridSize);
+    }
 
     move(){
         if (arrowKey == "ArrowLeft" && this.direction != "ArrowRight"){
@@ -50,10 +37,6 @@ class Snake{
         }
         if (this.direction == "ArrowDown"){
             this.y += 1;
-        }
-
-        ctx.fillStyle = "rgb(195,79,25)";
-        ctx.strokeStyle = "rgb(0,0,0)";
-        ctx.fillRect(this.x * gridSize,this.y * gridSize,gridSize,gridSize);
-    };
-}
+        }        
+    }
+};
