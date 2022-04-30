@@ -3,30 +3,57 @@ class Snake{
         this.x = x;
         this.y = y;
         this.direction = "ArrowRight";
-        this.prevDirection = "ArrowLeft";
     }
 
+    // set direction(newDir){
+    //     switch(this.direction){
+    //         case "ArrowLeft":
+    //             if(newDir != "ArrowRight") this.direction = newDir;
+    //             break;
+    //         case "ArrowUp":
+    //             if(newDir != "ArrowDown") this.direction = newDir;
+    //             break;
+    //         case "ArrowRight":
+    //             if(newDir != "ArrowLeft") this.direction = newDir;
+    //             break;
+    //         case "ArrowDown":
+    //             if(newDir != "ArrowUp") this.direction = newDir;
+    //             break;
+    //         }
+    // }
+    // get direction() {
+    //     return this.direction;
+    // }
+
     move(){
-        switch(this.direction){
-            case "ArrowLeft":
-                if(prevDirection != "ArrowRight"){
-                    this.x -= 1;
-                    this.prevDirection = this.direction;
-                }    
-                break;
-            case "ArrowUp":
-                if(prevDirection != "ArrowDown") this.y -= 1;
-                break;
-            case "ArrowRight":
-                if(prevDirection != "ArrowLeft") this.x += 1;
-                break;
-            case "ArrowDown":
-                if(prevDirection != "ArrowUp") this.y += 1;
-                break;
-            }
+        if (arrowKey == "ArrowLeft" && this.direction != "ArrowRight"){
+            this.direction = arrowKey;               
+        }
+        if (arrowKey == "ArrowRight" && this.direction != "ArrowLeft"){
+            this.direction = arrowKey;               
+        }
+        if (arrowKey == "ArrowDown" && this.direction != "ArrowUp"){
+            this.direction = arrowKey;               
+        }
+        if (arrowKey == "ArrowUp" && this.direction != "ArrowDown"){
+            this.direction = arrowKey;               
+        }
+
+        if (this.direction == "ArrowLeft"){
+            this.x -= 1;
+        }
+        if (this.direction == "ArrowRight"){
+            this.x += 1;
+        }
+        if (this.direction == "ArrowUp"){
+            this.y -= 1;
+        }
+        if (this.direction == "ArrowDown"){
+            this.y += 1;
+        }
+
         ctx.fillStyle = "rgb(195,79,25)";
         ctx.strokeStyle = "rgb(0,0,0)";
-        ctx.fillRect(snake.x * gridSize,snake.y * gridSize,gridSize,gridSize);
-    
+        ctx.fillRect(this.x * gridSize,this.y * gridSize,gridSize,gridSize);
     };
 }

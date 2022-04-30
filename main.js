@@ -3,6 +3,7 @@ const gridCount = 30;
 let gridSize;
 let ctx;
 let snake;
+let arrowKey;
 
 window.onload = function(){
     gridSize = screenSize / gridCount;
@@ -13,12 +14,14 @@ window.onload = function(){
     canvas.height = screenSize;
     snake = new Snake(screenCenter,screenCenter);
     ctx = canvas.getContext('2d');
-    
+
     setInterval(update,200);
 };
 
 document.onkeydown = function(event){
-    snake.direccion = event.key;
+    if (event.key == "ArrowLeft"  || event.key == "ArrowDown" ||
+        event.key == "ArrowRight" || event.key == "ArrowUp" )
+        arrowKey = event.key;
 };
 
 function update(){
