@@ -14,10 +14,10 @@ class GameLogic{
     }
 
     #snakeEat(){
-        // var node = snake.nodes[0];
-        // if (node.x == food.x && node.y == food.y){
-        //     snake.eat();
-        //     food.updatePos();
-        // }
+        var node = snake.nodes[0]; //Cabeza de snake
+        if (node.x == food.x && node.y == food.y){
+            snake.eat();
+            food.updatePos();
+        }
     }
 }

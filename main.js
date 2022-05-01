@@ -20,7 +20,7 @@ window.onload = function(){
     snake = new Snake(screenCenter,screenCenter,"ArrowRight");
     food = new Food();
 
-    setInterval(update,300);
+    setInterval(update,150);
 };
 
 document.onkeydown = function(event){

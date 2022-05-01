@@ -60,26 +60,8 @@ class Snake{
     }
 
     eat(){
-        // let lastNode = this.nodes[this.nodes.length - 1];
-        // let newNode =  {x : lastNode.x, y : lastNode.y};
-
-        // switch (this.direction) {
-        //     case "ArrowLeft":
-        //         newNode.x += 1; 
-        //         break;
-        //     case "ArrowRight":
-        //         newNode.x -= 1;
-        //         break;
-        //     case "ArrowUp":
-        //         newNode.y += 1;
-        //         break;
-        //     case "ArrowDown":
-        //         newNode.y -= 1;
-        //         break;
-        // }
-        // console.log(newNode,lastNode);
-        
-        // this.nodes.push(newNode);
+        let lastNode = this.nodes[this.nodes.length - 1];
+        this.nodes.push(new Node(lastNode.x,lastNode.y));
     }
 };
 

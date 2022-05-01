@@ -13,9 +13,17 @@ class Food{
     }
 
     updatePos(){
-        var max = (screenSize / gridSize) / 2;
-        var min = 0; 
-        this.x = Math.floor(Math.random() * (max - min) + min);
-        this.y = Math.floor(Math.random() * (max - min) + min);
+        let max = screenSize / gridSize;
+        let min = 0; 
+        let x,y,space;
+        do{
+            x = Math.floor(Math.random() * (max - min) + min);
+            y = Math.floor(Math.random() * (max - min) + min);  
+              
+            space = snake.nodes.find(p => p.x == x && p.y == y);
+        } while(space != undefined);
+
+        this.x = x;
+        this.y = y;
     }
 }
