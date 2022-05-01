@@ -1,5 +1,5 @@
 const screenSize = 600;
-const gridCount = 30;
+const gridCount = 10;
 let gridSize;
 let ctx;
 let snake;
@@ -17,11 +17,10 @@ window.onload = function(){
     ctx = canvas.getContext('2d');
     
     gameLogic = new GameLogic();
-    snake = new Snake(screenCenter,screenCenter);
+    snake = new Snake(screenCenter,screenCenter,"ArrowRight");
     food = new Food();
 
-
-    setInterval(update,200);
+    setInterval(update,300);
 };
 
 document.onkeydown = function(event){
