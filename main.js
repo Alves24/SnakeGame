@@ -1,5 +1,5 @@
 const screenSize = 600;
-const gridCount = 10;
+const gridCount = 6;
 let gridSize;
 let ctx;
 let snake;
@@ -20,7 +20,7 @@ window.onload = function(){
     snake = new Snake(screenCenter,screenCenter,"ArrowRight");
     food = new Food();
 
-    setInterval(update,150);
+    setInterval(update,250);
 };
 
 document.onkeydown = function(event){
