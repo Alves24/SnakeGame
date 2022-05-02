@@ -1,4 +1,8 @@
 class GameLogic{
+    constructor(){
+        this.points = 0;
+    }
+
     checkEvents(){
         this.#hitTheWall();
         this.#snakeEat();
@@ -18,6 +22,9 @@ class GameLogic{
         if (node.x == food.x && node.y == food.y){
             snake.eat();
             food.updatePos();
+            this.points += 10;
+            let htmlPoints = document.getElementById('points');
+            htmlPoints.textContent = "Points: " + this.points.toString();
         }
     }
 }
