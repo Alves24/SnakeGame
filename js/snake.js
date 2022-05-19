@@ -22,17 +22,17 @@ class Snake{
         let x = 0;
         let y = 0;
 
-        if (arrowKey == "ArrowLeft" && this.direction != "ArrowRight"){
-            this.direction = arrowKey;               
+        if (game.move == "ArrowLeft" && this.direction != "ArrowRight"){
+            this.direction = game.move;               
         }
-        if (arrowKey == "ArrowRight" && this.direction != "ArrowLeft"){
-            this.direction = arrowKey;               
+        if (game.move == "ArrowRight" && this.direction != "ArrowLeft"){
+            this.direction = game.move;               
         }
-        if (arrowKey == "ArrowDown" && this.direction != "ArrowUp"){
-            this.direction = arrowKey;               
+        if (game.move == "ArrowDown" && this.direction != "ArrowUp"){
+            this.direction = game.move;               
         }
-        if (arrowKey == "ArrowUp" && this.direction != "ArrowDown"){
-            this.direction = arrowKey;               
+        if (game.move == "ArrowUp" && this.direction != "ArrowDown"){
+            this.direction = game.move;               
         }
 
         if (this.direction == "ArrowLeft"){

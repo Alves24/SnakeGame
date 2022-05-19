@@ -1,10 +1,8 @@
+@forward 'globals';
+
 #screen{
     border: 2px solid rgb(27, 27, 27);
     background-color: rgb(81, 81, 107);
-}
-
-.body{
-    background-color: rgb(195, 79, 25);
 }
 
 canvas{
@@ -13,7 +11,7 @@ canvas{
 
 #menu{
     border: 2px solid rgb(27, 27, 27);
-    background-color: rgb(246, 246, 245);
+    background-color: rgb(50, 50, 50);
     display:inline-block;
     width: 200px;
     height: 600px;

@@ -1,8 +1,8 @@
 class Food{
-    constructor(){
+    constructor(snake){
         this.x = 0;
         this.y = 0;
-        this.updatePos();
+        this.updatePos(snake);
         this.draw();
     }
 
@@ -12,7 +12,7 @@ class Food{
         ctx.fillRect(this.x * gridSize,this.y * gridSize,gridSize,gridSize);
     }
 
-    updatePos(){
+    updatePos(snake){
         let max = screenSize / gridSize;
         let min = 0; 
         let x,y,space;

@@ -1,42 +1,45 @@
 const screenSize = 600;
-const gridCount = 6;
+const gridCount = 12;
+let screenCenter;
 let gridSize;
 let ctx;
+
 let snake;
 let food;
-let gameLogic;
-let arrowKey;
+let game;
+
 
 window.onload = function(){
     gridSize = screenSize / gridCount;
+    screenCenter = (screenSize / gridSize) / 2;
     
     let canvas = document.getElementById('screen');
-    let screenCenter = (screenSize / gridSize) / 2;
     canvas.width = screenSize;
     canvas.height = screenSize;
     ctx = canvas.getContext('2d');
-    
-    gameLogic = new GameLogic();
-    snake = new Snake(screenCenter,screenCenter,"ArrowRight");
-    food = new Food();
 
-    setInterval(update,250);
+    game = new Game();
+    draw();
+    // game.run();
 };
 
 document.onkeydown = function(event){
     if (event.key == "ArrowLeft"  || event.key == "ArrowDown" ||
         event.key == "ArrowRight" || event.key == "ArrowUp" )
-        arrowKey = event.key;
+        game.move = event.key;
+
+    if (event.key == "Escape"){
+        game.run();
+    }
 };
 
 function update(){
-    gameLogic.checkEvents();
+    game.checkEvents();
     draw();
 }
 
 function draw(){
     ctx.clearRect(0,0,screenSize,screenSize);
-    food.draw();
-    snake.draw(); 
+    game.food.draw();
+    game.snake.draw(); 
 }
-
