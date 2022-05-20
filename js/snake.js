@@ -11,6 +11,8 @@ class Snake{
     
     draw(){
         this.move();
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = 'red';
         ctx.fillStyle = "rgb(195,79,25)";
         ctx.strokeStyle = "rgb(0,0,0)";
         this.nodes.forEach(function(node){ 

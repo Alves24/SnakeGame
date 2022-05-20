@@ -7,6 +7,9 @@ class Food{
     }
 
     draw(){
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = 'green';
+        //ctx.shadowOffsetX = 25;
         ctx.fillStyle = "rgb(51,204,51)";
         ctx.strokeStyle = "rgb(0,0,0)";
         ctx.fillRect(this.x * gridSize,this.y * gridSize,gridSize,gridSize);

@@ -4,8 +4,6 @@ let screenCenter;
 let gridSize;
 let ctx;
 
-let snake;
-let food;
 let game;
 
 
