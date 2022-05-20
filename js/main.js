@@ -6,6 +6,9 @@ let ctx;
 
 let game;
 
+function NuevaFuncion(){
+    return "Prueba Git VScode";
+}
 
 window.onload = function(){
     gridSize = screenSize / gridCount;
