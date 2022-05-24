@@ -1,44 +1,50 @@
 class Game{
     
     constructor(){
+        this.move;
         this.points = 0;
         this.intervalId = null;
-        this.move;
+        this.speed = 300;
 
         this.snake = new Snake(screenCenter,screenCenter,"ArrowRight");
         this.food = new Food(this.snake);
     }
 
-    run(){
+    pause(){
         if (this.intervalId == null){
-            this.intervalId = setInterval(update,200);
+            this.intervalId = setInterval(update, this.speed);
         }else{
             clearInterval(this.intervalId);
             this.intervalId = null;
         }
     }
 
-    pause(){
-        clearInterval(this.intervalId);
-    }
 
     checkEvents(){
-        this.#hitTheWall();
+        this.#win();
         this.#snakeEat();
+        //this.#teleport();
     }
 
     restartGame(){
-        
+        this.pause(); 
+        this.points = 0;
+        this.speed = 300;
+        this.snake = new Snake(screenCenter,screenCenter,"ArrowRight");
+        this.food = new Food(this.snake);
+        update();
     }
 
-    #hitTheWall(){
-        // var node = snake.nodes[0];
-        // let maxCordenates = screenSize / gridSize;
-        // if(node.x < 0 || node.x > maxCordenates || node.y < 0 || node.y > maxCordenates){
-        //     //The boluda snake hit the wall
-        //     console.log("You Loose");
-        // }
+    #win(){
+        if (this.snake.nodes.length == gridCount * gridCount){
+            this.restartGame();
+            this.pause();
+            
+            //alert("You Won :)");
+        }
+        console.log(this.snake.nodes.length + "  " + gridCount * gridCount);  
     }
+
 
     #snakeEat(){
         var node = this.snake.nodes[0]; //Cabeza de snake

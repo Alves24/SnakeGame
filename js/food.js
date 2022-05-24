@@ -7,8 +7,8 @@ class Food{
     }
 
     draw(){
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = 'green';
+        ctx.shadowBlur = 40;
+        ctx.shadowColor = 'limegreen';
         //ctx.shadowOffsetX = 25;
         ctx.fillStyle = "rgb(51,204,51)";
         ctx.strokeStyle = "rgb(0,0,0)";

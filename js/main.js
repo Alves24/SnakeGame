@@ -1,5 +1,5 @@
 const screenSize = 600;
-const gridCount = 12;
+const gridCount = 6;
 let screenCenter;
 let gridSize;
 let ctx;
@@ -18,7 +18,7 @@ window.onload = function(){
 
     game = new Game();
     draw();
-    // game.run();
+    
 };
 
 document.onkeydown = function(event){
@@ -27,13 +27,13 @@ document.onkeydown = function(event){
         game.move = event.key;
 
     if (event.key == "Escape"){
-        game.run();
+        game.pause();
     }
 };
 
 function update(){
-    game.checkEvents();
     draw();
+    game.checkEvents();
 }
 
 function draw(){
