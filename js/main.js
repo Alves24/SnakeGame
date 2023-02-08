@@ -1,9 +1,8 @@
 const screenSize = 600;
-const gridCount = 6;
+const gridCount = 10;
 let screenCenter;
 let gridSize;
 let ctx;
-
 let game;
 
 
@@ -18,7 +17,6 @@ window.onload = function(){
 
     game = new Game();
     draw();
-    
 };
 
 document.onkeydown = function(event){

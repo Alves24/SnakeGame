@@ -1,5 +1,4 @@
 class Game{
-    
     constructor(){
         this.move;
         this.points = 0;
@@ -19,7 +18,6 @@ class Game{
         }
     }
 
-
     checkEvents(){
         this.#win();
         this.#snakeEat();
@@ -27,24 +25,19 @@ class Game{
     }
 
     restartGame(){
-        this.pause(); 
         this.points = 0;
-        this.speed = 300;
-        this.snake = new Snake(screenCenter,screenCenter,"ArrowRight");
         this.food = new Food(this.snake);
-        update();
+        this.snake = new Snake(screenCenter,screenCenter,"ArrowRight");
+        update(); 
+        this.pause();
     }
 
     #win(){
         if (this.snake.nodes.length == gridCount * gridCount){
             this.restartGame();
             this.pause();
-            
-            //alert("You Won :)");
         }
-        console.log(this.snake.nodes.length + "  " + gridCount * gridCount);  
     }
-
 
     #snakeEat(){
         var node = this.snake.nodes[0]; //Cabeza de snake

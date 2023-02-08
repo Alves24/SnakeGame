@@ -1,22 +1,23 @@
 class Snake{
     constructor(x,y,direction){
+        // Definimos longitud inicial del Snake
         this.nodes = new Array();
-        this.nodes.push(new Node(x,y));
-        this.nodes.push(new Node(x-1,y));
-        this.nodes.push(new Node(x-2,y));
-        // this.nodes.push(new Node(x-3,y));
-        // this.nodes.push(new Node(x-4,y));
+        let snakeLenght = 3;
+        for (let i = 0; i < snakeLenght; i++){
+            this.nodes.push(new Node(x+i,y));
+        }
         this.direction = direction;
     }
     
     draw(){
         this.move();
+        if (this.collision()) return;
 
         let color = {R:195,G:79,B:25};
         let lastNode, currentNode, nextNode;
         let border = 2;
         
-        for(let i = 0; i < this.nodes.length ; i++){
+        for (let i = 0; i < this.nodes.length ; i++){
             let borderR = border * 2;
             let borderL = border;
             let borderT = border;
@@ -140,7 +141,17 @@ class Snake{
         this.nodes.push(new Node(lastNode.x,lastNode.y));
     }
 
-    
+    collision(){
+        let lastNodes = [...this.nodes];
+        let firstNode = lastNodes.shift();
+        let snakeIsEatingHimSelf = lastNodes.some( node => node.x === firstNode.x && node.y === firstNode.y);
+        
+        if (snakeIsEatingHimSelf){
+            game.restartGame();
+            return true;
+        }
+        return false;
+    }
 };
 
 class Node{
@@ -148,7 +159,6 @@ class Node{
         this.x = x;
         this.y = y;
     }
-
     gridX(){
         if (this.x == 0) return 0;
         return this.x * gridSize;
