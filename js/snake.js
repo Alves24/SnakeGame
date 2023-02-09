@@ -79,24 +79,21 @@ class Snake{
                         gridSize - borderB);
             color.G += 3;
         }
+
+        GraphicDetails.drawSnakeEyes();
     }
 
     move(){
         let x = 0;
         let y = 0;
 
-        if (game.move == "ArrowLeft" && this.direction != "ArrowRight"){
-            this.direction = game.move;               
-        }
-        if (game.move == "ArrowRight" && this.direction != "ArrowLeft"){
-            this.direction = game.move;               
-        }
-        if (game.move == "ArrowDown" && this.direction != "ArrowUp"){
-            this.direction = game.move;               
-        }
-        if (game.move == "ArrowUp" && this.direction != "ArrowDown"){
-            this.direction = game.move;               
-        }
+        var notBackwardMove = (
+            game.move == "ArrowLeft" && this.direction != "ArrowRight" ||
+            game.move == "ArrowRight" && this.direction != "ArrowLeft" ||
+            game.move == "ArrowDown" && this.direction != "ArrowUp" ||
+            game.move == "ArrowUp" && this.direction != "ArrowDown")
+
+        if (notBackwardMove) this.direction = game.move;               
 
         if (this.direction == "ArrowLeft"){
             x = -1;
