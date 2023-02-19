@@ -7,6 +7,7 @@ class Snake{
             this.nodes.push(new Node(x+i,y));
         }
         this.direction = direction;
+        this.eyes = new snakeEyes();
     }
     
     draw(){
@@ -80,7 +81,7 @@ class Snake{
             color.G += 2;
         }
 
-        GraphicDetails.drawSnakeEyes(this.nodes);
+        this.eyes.draw(this.nodes, this.direction);
     }
 
     move(){
@@ -95,18 +96,10 @@ class Snake{
 
         if (notBackwardMove) this.direction = game.move;               
 
-        if (this.direction == "ArrowLeft"){
-            x = -1;
-        }
-        if (this.direction == "ArrowRight"){
-            x = 1;
-        }
-        if (this.direction == "ArrowUp"){
-            y = -1;
-        }
-        if (this.direction == "ArrowDown"){
-            y = 1;
-        }
+        if (this.direction == "ArrowLeft") x = -1;
+        if (this.direction == "ArrowRight") x = 1;
+        if (this.direction == "ArrowUp") y = -1;
+        if (this.direction == "ArrowDown") y = 1;
 
         // Recorro los nodos desde atras 
         // copiando las pos del siguiente nodo.
