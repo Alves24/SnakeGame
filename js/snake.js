@@ -7,15 +7,16 @@ class Snake{
             this.nodes.push(new Node(x+i,y));
         }
         this.direction = direction;
+        this.eyes = new snakeEyes();
     }
     
     draw(){
         this.move();
         if (this.collision()) return;
 
-        let color = {R:195,G:79,B:25};
+        let color = {R:20,G:140,B:45};
         let lastNode, currentNode, nextNode;
-        let border = 2;
+        let border = 3;
         
         for (let i = 0; i < this.nodes.length ; i++){
             let borderR = border * 2;
@@ -77,10 +78,10 @@ class Snake{
                         currentNode.gridY() + borderT,
                         gridSize - borderR,
                         gridSize - borderB);
-            color.G += 3;
+            color.G += 2;
         }
 
-        GraphicDetails.drawSnakeEyes();
+        this.eyes.draw(this.nodes, this.direction);
     }
 
     move(){
@@ -95,18 +96,10 @@ class Snake{
 
         if (notBackwardMove) this.direction = game.move;               
 
-        if (this.direction == "ArrowLeft"){
-            x = -1;
-        }
-        if (this.direction == "ArrowRight"){
-            x = 1;
-        }
-        if (this.direction == "ArrowUp"){
-            y = -1;
-        }
-        if (this.direction == "ArrowDown"){
-            y = 1;
-        }
+        if (this.direction == "ArrowLeft") x = -1;
+        if (this.direction == "ArrowRight") x = 1;
+        if (this.direction == "ArrowUp") y = -1;
+        if (this.direction == "ArrowDown") y = 1;
 
         // Recorro los nodos desde atras 
         // copiando las pos del siguiente nodo.
